@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/email_verification/send', 'EmailVerificationController@send')->name('email_verification.send');//不要把这个路由放在 email_verified 的路由组中。
     //开始
     Route::group(['middleware' => 'email_verified'], function () {
+        Route::get('user_addresses', 'UserAddressesController@index')->name('user_addresses.index');
     });
     //end
 });
+

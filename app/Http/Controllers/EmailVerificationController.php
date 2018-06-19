@@ -50,14 +50,15 @@ class EmailVerificationController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws InvalidRequestException
      */
-    public function send(Request $request){
+    public function send(Request $request)
+    {
         $user = $request->user();
         //判断用户是否已激活
-        if ($user->email_verified){
+        if ($user->email_verified) {
             throw new InvalidRequestException('你已经验证过邮箱了');
         }
         //调用notify（）方法用来发送定义好的通知类
         $user->notify(new EmailVerificationNotification());
-        return view('pages.success',['msg'=>'邮件发送成功']);
+        return view('pages.success', ['msg' => '邮件发送成功']);
     }
 }
