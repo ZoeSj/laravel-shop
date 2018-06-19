@@ -7,7 +7,7 @@ import _ from 'lodash';
 Vue.component('select-district', {
     // 定义组件的属性
     props: {
-        // 用来初始化省市区的值，在编辑时会用到
+        // 用来初始化省市区的值，在编辑时会用到Ø
         initValue: {
             type: Array, // 格式是数组
             default: () => ([]), // 默认是个空数组

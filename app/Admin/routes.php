@@ -18,3 +18,4 @@ Route::group([
     $router->put('products/{id}', 'ProductsController@update');
 
 });
+
