@@ -74,4 +74,8 @@ Route::group(['middleware' => 'auth'], function () {
 });
 //商品展示页面
 Route::get('products/{product}', 'ProductsController@show')->name('products.show');
+/**
+ * 支付
+ */
+
 
