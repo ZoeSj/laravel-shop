@@ -67,7 +67,7 @@ class ProductsController extends Controller
 
         $favored = false;
         // 用户未登录时返回的是 null，已登录时返回的是对应的用户对象
-        if($user = $request->user()) {
+        if ($user = $request->user()) {
             // 从当前用户已收藏的商品中搜索 id 为当前商品 id 的商品
             // boolval() 函数用于把值转为布尔值
             $favored = boolval($user->favoriteProducts()->find($product->id));
@@ -104,5 +104,16 @@ class ProductsController extends Controller
         $user->favoriteProducts()->detach($product);
 
         return [];
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function favorites(Request $request)
+    {
+        $products = $request->user()->favoriteProducts()->paginate(16);
+
+        return view('products.favorites', ['products' => $products]);
     }
 }
