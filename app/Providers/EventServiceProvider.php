@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use App\Listeners\RegisteredListener;
 use Illuminate\Auth\Events\Registered;
+use App\Events\OrderPaid;
+use App\Listeners\UpdateProductSoldCount;
+use App\Listeners\SendOrderPaidMail;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -19,6 +22,10 @@ class EventServiceProvider extends ServiceProvider
         ],
         Registered::class => [
             RegisteredListener::class,
+        ],
+        OrderPaid::class => [
+            UpdateProductSoldCount::class,
+            SendOrderPaidMail::class,
         ],
     ];
 
