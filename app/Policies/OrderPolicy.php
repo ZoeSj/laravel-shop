@@ -10,6 +10,11 @@ class OrderPolicy
 {
     use HandlesAuthorization;
 
+    /**
+     * @param User $user
+     * @param Order $order
+     * @return bool
+     */
     public function own(User $user, Order $order)
     {
         return $order->user_id == $user->id;
