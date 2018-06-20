@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -6,7 +5,8 @@
  */
 
 require('./bootstrap');
-
+require('./components/SelectDistrict');
+require('./components/UserAddressesCreateAndEdit');
 window.Vue = require('vue');
 
 /**
