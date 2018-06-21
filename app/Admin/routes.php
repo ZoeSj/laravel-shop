@@ -33,5 +33,9 @@ Route::group([
      */
     $router->post('orders/{order}/refund', 'OrdersController@handleRefund')->name('admin.orders.handle_refund');
 
+    /**
+     * 优惠券
+     */
+    $router->get('coupon_codes', 'CouponCodesController@index');
 });
 
