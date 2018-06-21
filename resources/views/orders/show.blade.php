@@ -96,10 +96,6 @@
                                 <span>订单总价：</span>
                                 <div class="value">￥{{ $order->total_amount }}</div>
                             </div>
-                            <div class="total-amount">
-                                <span>订单总价：</span>
-                                <div class="value">￥{{ $order->total_amount }}</div>
-                            </div>
                             <div>
                                 <span>订单状态：</span>
                                 <div class="value">
