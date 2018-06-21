@@ -27,10 +27,11 @@
                                         </a>
                                     </div>
                                     <div>
-            <span class="product-title">
-               <a target="_blank"
-                  href="{{ route('products.show', [$item->product_id]) }}">{{ $item->product->title }}</a>
-             </span>
+                                        <span class="product-title">
+                                              <a target="_blank"
+                                                 href="{{ route('products.show', [$item->product_id]) }}">{{ $item->product->title }}
+                                              </a>
+                                         </span>
                                         <span class="sku-title">{{ $item->productSku->title }}</span>
                                     </div>
                                 </td>
@@ -83,6 +84,18 @@
                             @endif
                         </div>
                         <div class="order-summary text-right">
+                            <!-- 展示优惠信息开始 -->
+                            @if($order->couponCode)
+                                <div class="text-primary">
+                                    <span>优惠信息：</span>
+                                    <div class="value">{{ $order->couponCode->description }}</div>
+                                </div>
+                        @endif
+                        <!-- 展示优惠信息结束 -->
+                            <div class="total-amount">
+                                <span>订单总价：</span>
+                                <div class="value">￥{{ $order->total_amount }}</div>
+                            </div>
                             <div class="total-amount">
                                 <span>订单总价：</span>
                                 <div class="value">￥{{ $order->total_amount }}</div>
@@ -108,7 +121,7 @@
                                         <div class="value">{{ $order->extra['refund_disagree_reason'] }}</div>
                                     </div>
                                 @endif
-                                <!-- 支付按钮开始 -->
+                            <!-- 支付按钮开始 -->
                                 @if(!$order->paid_at && !$order->closed)
                                     <div class="payment-buttons">
                                         <a class="btn btn-primary btn-sm"
@@ -170,7 +183,7 @@
                     content: "input",
                 }).then(function (input) {
                     // 当用户点击 swal 弹出框上的按钮时触发这个函数
-                    if(!input) {
+                    if (!input) {
                         swal('退款理由不可空', '', 'error');
                         return;
                     }
