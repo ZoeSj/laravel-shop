@@ -283,7 +283,7 @@ body {
 
 .orders_index-page {
   .list-group-item {
-    font-size: 12px;
+    font-size: 14px;
     border: none;
     padding: 0;
     margin-bottom: 15px;
@@ -326,7 +326,11 @@ body {
   }
 }
 .orders_show-page {
-  font-size: 12px;
+  font-size: 14px;
+  .payment-buttons, .receive-button {
+    margin-top: 10px;
+    padding-right: 10px;
+  }
   .payment-buttons {
     margin-top: 10px;
     padding-right: 10px;
