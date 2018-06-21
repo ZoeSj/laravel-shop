@@ -14,6 +14,7 @@ class Handler extends ExceptionHandler
      */
     protected $dontReport = [
         InvalidRequestException::class,
+        CouponCodeUnavailableException::class,
     ];
 
     /**
@@ -33,6 +34,7 @@ class Handler extends ExceptionHandler
      *
      * @param  \Exception $exception
      * @return void
+     * @throws Exception
      */
     public function report(Exception $exception)
     {
