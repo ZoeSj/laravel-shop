@@ -1,4 +1,5 @@
 // 注册一个名为 user-addresses-create-and-edit 的组件
+import Vue from 'vue';
 Vue.component('user-addresses-create-and-edit', {
     // 组件的数据
     data() {

@@ -49,6 +49,7 @@ class OrdersController extends Controller
             $coupon = CouponCode::where('code', $code)->first();
             if (!$coupon) {
                 throw new CouponCodeUnavailableException('优惠券不存在');
+
             }
         }
         // 参数中加入 $coupon 变量

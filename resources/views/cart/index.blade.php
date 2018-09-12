@@ -213,6 +213,9 @@
                         $('#btn-cancel-coupon').show(); // 显示 取消 按钮
                         $('#btn-check-coupon').hide(); // 隐藏 检查 按钮
                     }, function (error) {
+                        //step1 检测是否是json
+                        //step2 json的格式校验
+
                         // 如果返回码是 404，说明优惠券不存在
                         if(error.response.status === 404) {
                             swal('优惠码不存在', '', 'error');
